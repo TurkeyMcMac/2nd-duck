@@ -31,7 +31,7 @@ void sayOverTime(unsigned int wait, char *message) {
 	for (int i = 0; i <= length; ++i){
 		strncpy(thingToSay, message, i);
 		thingToSay[i] = 0;
-		char *str = malloc(length + 8);
+		char *str = malloc(i + 8);
 		printf("%s\r", sayInto(str, thingToSay));
 		fflush(stdout);
 		free(str);
