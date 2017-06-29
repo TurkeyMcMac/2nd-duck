@@ -88,14 +88,16 @@ int main(int argc, char *argv[]) {
 				messageIndex = 2;
 			}
 			sayFromText(argv[waitIndex], argv[messageIndex]);
-			break; }
+			break;
+		}
 		case 'r': {
 			if (argc != 3) goto help;
 			int waitIndex = !strcmp(argv[1], "-r") ? 2 : 1;
 			char phrase[MAX_READ_PHRASE_LEN];
 			memset(phrase, 0, MAX_READ_PHRASE_LEN);
-			sayFromText(argv[waitIndex], randomPhrase(phrase)); }
+			sayFromText(argv[waitIndex], randomPhrase(phrase));
 			break;
+		}
 		default: help:
 			puts("Placeholder help information.");
 			break;
