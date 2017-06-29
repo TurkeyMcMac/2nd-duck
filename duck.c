@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
 	}
 	switch (opt) {
 		case 'e': {
-			if (argc != 4) goto help;
+			if (!(argc >= 4)) goto help;
 			int waitIndex;
 			int messageIndex;
 			const char *optArg = "-e";
@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
 			puts(PHRASES_LOCATION);
 			break;
 		case 'r': {
-			if (argc != 3) goto help;
+			if (!(argc >= 3)) goto help;
 			int waitIndex = !strcmp(argv[1], "-r") ? 2 : 1;
 			char phrase[MAX_READ_PHRASE_LEN];
 			memset(phrase, 0, MAX_READ_PHRASE_LEN);
