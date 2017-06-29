@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
 	char opt,
 	     optMaybe;
 	bool hasOpt = false;
-	while ((optMaybe = getopt(argc, argv, "ehr")) != -1) {
+	while ((optMaybe = getopt(argc, argv, "ehpr")) != -1) {
 		if (hasOpt) {
 			puts("Multiple options are unnecessary.");
 			return -1;
@@ -90,6 +90,9 @@ int main(int argc, char *argv[]) {
 			sayFromText(argv[waitIndex], argv[messageIndex]);
 			break;
 		}
+		case 'p':
+			puts(PHRASES_LOCATION);
+			break;
 		case 'r': {
 			if (argc != 3) goto help;
 			int waitIndex = !strcmp(argv[1], "-r") ? 2 : 1;

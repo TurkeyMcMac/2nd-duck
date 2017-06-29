@@ -9,4 +9,6 @@ features. I plan to add more.
 
 `duck -h` Show help information.
 
+`duck -p` Get the location where the duck's phrases are stored.
+
 `duck -r <wait>` Have the duck say something random, `wait`ing a certain amount of time between saying each character.
