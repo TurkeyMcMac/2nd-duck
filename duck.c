@@ -19,12 +19,6 @@ char *sayInto(char *target, char *message) {
 	return target;
 }
 
-void sayInstantly(char *message) {
-	char *str = malloc(strlen(message) + 8);
-	puts(sayInto(str, message));
-	free(str);
-}
-
 void sayOverTime(unsigned int wait, char *message) {
 	int length = strlen(message);
 	char *thingToSay = malloc(length);
@@ -41,9 +35,11 @@ void sayOverTime(unsigned int wait, char *message) {
 	printf("\n");
 }
 
-int main(int argc, char *argv[]) {
-	if (argv[1] == "-i" || argv[1] == "--instant") sayInstantly(argv[2]);
-	else sayOverTime(strtol(argv[1], 0, 10) * 1000, argv[2]);
+void sayFromText(char *wait, char *message) {
+	sayOverTime(strtol(wait, 0, 10) * 1000, message);
+}
 
+int main(int argc, char *argv[]) {
+	sayFromText(argv[1], argv[2]);
 	return 0;
 }
