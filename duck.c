@@ -5,9 +5,7 @@
 #include <string.h>
 #include <time.h>
 
-#define PHRASES_LOCATION strcat(getenv("HOME"), "/phrases.txt")
-#define MAX_PHRASE_NUM 100
-#define MAX_READ_PHRASE_LEN 200
+#include "settings.h"
 
 void delay(unsigned int time) {
 	clock_t end = clock() + time;
