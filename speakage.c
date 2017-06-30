@@ -20,7 +20,7 @@ char *sayInto(char *target, char *message) {
 	return target;
 }
 
-void sayOverTime(unsigned int wait, char *message) {
+void sayOverTime(size_t wait, char *message) {
 	int length = strlen(message);
 	char *thingToSay = malloc(length);
 	for (int i = 0; i <= length; ++i) {
