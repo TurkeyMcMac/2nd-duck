@@ -52,7 +52,15 @@ int main(int argc, char *argv[]) {
 			break;
 		}
 		default: help:
-			puts("Placeholder help information.");
+			puts(
+"Usage: duck [option] wait [phrase]\n\
+  options:\n\
+    -e wait phrase  Echo the specified phrase, waiting the specified\n\
+                    time between saying each character.\n\
+    -r wait         Say a phrase picked randomly from the phrase file,\n\
+                    waiting the specified time between saying each\n\
+		    character.\n\
+    -p              Print the path of the file containing phrases.");
 			break;
 	}
 	return 0;
