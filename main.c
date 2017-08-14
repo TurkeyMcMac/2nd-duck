@@ -41,10 +41,11 @@ int main(int argc, char *argv[]) {
   options:\n\
     -e wait phrase  Echo the specified phrase, waiting the specified\n\
                     time between saying each character.\n\
+    -h              Display this help information.\n\
+    -p              Print the path of the file containing phrases.\n\
     -r wait         Say a phrase picked randomly from the phrase file,\n\
                     waiting the specified time between saying each\n\
-		    character.\n\
-    -p              Print the path of the file containing phrases.");
+		    character.");
 			break;
 	}
 	return 0;
