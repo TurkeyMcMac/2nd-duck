@@ -46,14 +46,12 @@ char *randomPhrase(char *randomize) {
 		fprintf(stderr, "Phrase list file '%s' not found.\n", PHRASES_LOCATION);
 		return randomize;
 	}
-	char **phraseList = malloc(MAX_PHRASE_NUM * sizeof (char *));
+	char *phraseList[MAX_PHRASE_NUM * sizeof (char *)];
 	size_t phrasesFound = rflarr(phraseList, phrases, MAX_PHRASE_NUM, MAX_READ_PHRASE_LEN);
 	fclose(phrases);
 	srand(time(NULL));
 	char *pickedStr = phraseList[rand() % phrasesFound];
 	randomize = strcpy(randomize, pickedStr);
-	free(*phraseList);
-	free(phraseList);
 	return randomize;
 }
 
