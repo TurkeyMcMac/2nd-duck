@@ -1,7 +1,5 @@
 #include "delay.h"
 
-#include <stdio.h>
-
 void delay (int millis) {
 #ifdef WIN32
 	#include <windows.h>
