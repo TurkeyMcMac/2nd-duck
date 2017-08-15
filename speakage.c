@@ -23,15 +23,15 @@ char *sayInto(char *target, char *message) {
 void sayOverTime(size_t wait, char *message) {
 	int length = strlen(message);
 	char *thingToSay = malloc(length);
+	char *said = malloc(length + 8);
 	for (int i = 0; i <= length; ++i) {
 		strncpy(thingToSay, message, i);
 		thingToSay[i] = 0;
-		char *str = malloc(i + 8);
-		printf("%s\r", sayInto(str, thingToSay));
+		printf("%s\r", sayInto(said, thingToSay));
 		fflush(stdout);
-		free(str);
 		delay(wait);
 	}
+	free(said);
 	free(thingToSay);
 	printf("\n");
 }
