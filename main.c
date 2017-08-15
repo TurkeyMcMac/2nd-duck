@@ -23,14 +23,14 @@ int main(int argc, char *argv[]) {
 	}
 	switch (opt) {
 		case 'e':
-			if (!(argc >= 4)) goto help;
+			if (argc < 4) goto help;
 			sayFromText(argv[2], argv[3]);
 			break;
 		case 'p':
 			puts(PHRASES_LOCATION);
 			break;
 		case 'r':
-			if (!(argc >= 3)) goto help;
+			if (argc < 3) goto help;
 			sayFromText(argv[2], randomPhrase());
 			break;
 		default: help:
