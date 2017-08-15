@@ -31,9 +31,9 @@ int main(int argc, char *argv[]) {
 			break;
 		case 'r':
 			if (!(argc >= 3)) goto help;
-			char phrase[MAX_READ_PHRASE_LEN];
-			memset(phrase, 0, MAX_READ_PHRASE_LEN);
-			sayFromText(argv[2], randomPhrase(phrase));
+			//char phrase[MAX_READ_PHRASE_LEN];
+			//memset(phrase, 0, MAX_READ_PHRASE_LEN);
+			sayFromText(argv[2], randomPhrase());
 			break;
 		default: help:
 			puts(

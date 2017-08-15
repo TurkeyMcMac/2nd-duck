@@ -10,6 +10,6 @@ void sayOverTime(size_t wait, char *message);
 
 void sayFromText(char *wait, char *message);
 
-char *randomPhrase(char *randomize);
+char *randomPhrase();
 
 #endif

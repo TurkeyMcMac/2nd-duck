@@ -40,18 +40,23 @@ void sayFromText(char *wait, char *message) {
 	sayOverTime(strtol(wait, 0, 10) * 1000, message);
 }
 
-char *randomPhrase(char *randomize) {
-	FILE *phrases = fopen(PHRASES_LOCATION, "r");
+char *randomPhrase() {
+	char *phrasesLocation = PHRASES_LOCATION;
+	FILE *phrases = fopen(phrasesLocation, "r");
 	if (!phrases) {
-		fprintf(stderr, "Phrase list file '%s' not found.\n", PHRASES_LOCATION);
-		return randomize;
+		char *notFound = malloc(250);
+		sprintf(notFound, "Phrase list file '%s' not found.", phrasesLocation);
+		return notFound;
 	}
-	char *phraseList[MAX_PHRASE_NUM * sizeof (char *)];
+	char *phraseList[MAX_PHRASE_NUM];
 	size_t phrasesFound = rflarr(phraseList, phrases, MAX_PHRASE_NUM, MAX_READ_PHRASE_LEN);
 	fclose(phrases);
 	srand(time(NULL));
-	char *pickedStr = phraseList[rand() % phrasesFound];
-	randomize = strcpy(randomize, pickedStr);
-	return randomize;
+	size_t indexPicked = rand() % phrasesFound;
+	char *pickedStr = phraseList[indexPicked];
+	for (size_t i = 0; i < phrasesFound; ++i) {
+		if (i != indexPicked) free(phraseList[i]);
+	}
+	return pickedStr;
 }
 
