@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
 			break;
 		default: help:
 			puts(
-"Usage: duck [option] wait [phrase]\n\
+"Usage: duck [option] [wait] [phrase]\n\
   options:\n\
     -e wait phrase  Echo the specified phrase, waiting the specified\n\
                     time between saying each character.\n\
