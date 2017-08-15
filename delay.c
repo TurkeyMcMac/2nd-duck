@@ -1,11 +1,13 @@
-
 #include "delay.h"
 
 #include <stdio.h>
-#include <time.h>
 
-void delay(size_t time) {
-	clock_t end = clock() + time;
-	while (clock() <= end);
+void delay (int millis) {
+#ifdef WIN32
+	#include <windows.h>
+	Sleep(millis);
+#else
+	#include <unistd.h>
+	usleep(millis * 1000);
+#endif
 }
-

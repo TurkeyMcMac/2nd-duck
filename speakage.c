@@ -37,7 +37,7 @@ void sayOverTime(size_t wait, char *message) {
 }
 
 void sayFromText(char *wait, char *message) {
-	sayOverTime(strtol(wait, 0, 10) * 1000, message);
+	sayOverTime(strtol(wait, 0, 10), message);
 }
 
 char *randomPhrase() {
