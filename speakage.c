@@ -12,9 +12,7 @@
 #include "file-line-reader.h"
 #include "settings.h"
 
-char *sayInto(char *target, char *message) {
-	static bool mouthOpen = false;
-	mouthOpen = !mouthOpen;
+char *sayInto(char *target, char *message, bool mouthOpen) {
 	char *duckPicture = mouthOpen ? "7^< -{%s}" : "7^= -{%s}";
 	sprintf(target, duckPicture, message);
 	return target;
@@ -24,10 +22,11 @@ void sayOverTime(size_t wait, char *message) {
 	int length = strlen(message);
 	char *thingToSay = malloc(length);
 	char *said = malloc(length + 8);
-	for (int i = 0; i <= length; ++i) {
+	bool mouthOpen = false;
+	for (int i = 0; i <= length; ++i, mouthOpen = !mouthOpen) {
 		strncpy(thingToSay, message, i);
 		thingToSay[i] = 0;
-		printf("%s\r", sayInto(said, thingToSay));
+		printf("%s\r", sayInto(said, thingToSay, mouthOpen));
 		fflush(stdout);
 		delay(wait);
 	}
