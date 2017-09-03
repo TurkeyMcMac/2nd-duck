@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 #include <unistd.h>
 
 #include "delay.h"
@@ -50,7 +49,6 @@ char *randomPhrase() {
 	char *phraseList[MAX_PHRASE_NUM];
 	size_t phrasesFound = rflarr(phraseList, phrases, MAX_PHRASE_NUM, MAX_READ_PHRASE_LEN);
 	fclose(phrases);
-	srand(time(NULL));
 	size_t indexPicked = rand() % phrasesFound;
 	char *pickedStr = phraseList[indexPicked];
 	for (size_t i = 0; i < phrasesFound; ++i) {

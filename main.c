@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include <unistd.h>
 
 #include "file-line-reader.h"
@@ -41,6 +42,7 @@ int main(int argc, char *argv[]) {
 				exitStatus = -2;
 				goto help;
 			}
+			srand(time(NULL));
 			sayFromText(argv[2], randomPhrase());
 			break;
 		default: 
