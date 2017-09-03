@@ -19,11 +19,11 @@ char *sayInto(char *target, char *message, bool mouthOpen) {
 }
 
 void sayOverTime(size_t wait, char *message) {
-	long unsigned length = strlen(message);
+	long unsigned length = strlen(message) + 1;
 	char *thingToSay = malloc(length);
-	char *said = malloc(length + 8);
+	char *said = malloc(length + 7);
 	bool mouthOpen = false;
-	for (int i = 0; i <= length; ++i, mouthOpen = !mouthOpen) {
+	for (int i = 0; i < length; ++i, mouthOpen = !mouthOpen) {
 		strncpy(thingToSay, message, i);
 		thingToSay[i] = 0;
 		printf("%s\r", sayInto(said, thingToSay, mouthOpen));
