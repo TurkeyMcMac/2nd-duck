@@ -19,7 +19,7 @@ char *sayInto(char *target, char *message, bool mouthOpen) {
 }
 
 void sayOverTime(size_t wait, char *message) {
-	int length = strlen(message);
+	long unsigned length = strlen(message);
 	char *thingToSay = malloc(length);
 	char *said = malloc(length + 8);
 	bool mouthOpen = false;
